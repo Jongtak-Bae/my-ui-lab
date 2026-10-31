@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { cn } from "../utils/cn";
 import { ChevronDown } from "lucide-react";
-
+import {motion} from "motion/react"
 export function AccordionItem({ title, content }) {
   const [isOpen, setOpen] = useState(false);
   
