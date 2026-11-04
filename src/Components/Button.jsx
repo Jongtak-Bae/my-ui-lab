@@ -1,4 +1,4 @@
-export function Button({ label, variant = "primary", index }) {
+export function Button({ label, variant = "primary", index, handleClick }) {
   const baseClasses =
     "bg-bg-brand text-text-on-brand border border-border-brand";
   const variantClasses = {
@@ -20,6 +20,7 @@ export function Button({ label, variant = "primary", index }) {
         `}
       key={label}
       type="button"
+      onClick={handleClick}
     >
       {label}
     </button>

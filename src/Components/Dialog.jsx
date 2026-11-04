@@ -1,4 +1,4 @@
-import { motion } from "framer-motion"; // or "motion/react" depending on your project setup
+import { motion } from "motion/react"; // or "motion/react" depending on your project setup
 import { Button } from "./Button";
 import { X } from "lucide-react";
 

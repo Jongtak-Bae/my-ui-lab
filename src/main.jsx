@@ -6,9 +6,10 @@ import { TransactionCard } from "./Components/TransactionCard";
 import { Button } from "./Components/Button";
 import { ToggleSwitch } from "./Components/ToggleSwitch";
 import { AccordionItem } from "./Components/AccordionItem";
-import { motion } from "framer-motion"; 
+import { motion } from "motion/react";
 import Dialog from "./Components/Dialog";
 import { SegmentedControl } from "./Components/SegmentedControl";
+import { SlideOverDrawer } from "./Components/SlideOverDrawer";
 function PlusIcon() {
   return (
     <svg
@@ -30,7 +31,7 @@ function PlusIcon() {
 
 function App() {
   const [dark, setDark] = useState(false);
-const [activeTab, setActiveTab] = useState('Overview');
+  const [activeTab, setActiveTab] = useState("Overview");
   return (
     <main
       className={`${dark ? "dark" : ""} min-h-screen bg-white text-gray-900 transition-colors dark:bg-slate-950 dark:text-slate-100`}
@@ -78,26 +79,26 @@ const [activeTab, setActiveTab] = useState('Overview');
            simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also
         "
         />
- <div className="bg-black grid place-items-center h-128">
-
-  <Dialog widthClass="w-80" />
- </div>
-<SegmentedControl 
-options={['Overview','Analytics','Settings']}
-defaultSelected = "Overview"
-onChange={(tab)=> setActiveTab(tab)}
-
-/>
-{/* Dynamic Content Preview Card */}
+        <div className="bg-black grid place-items-center h-128">
+          <Dialog widthClass="w-80" />
+        </div>
+        <SegmentedControl
+          options={["Overview", "Analytics", "Settings"]}
+          defaultSelected="Overview"
+          onChange={(tab) => setActiveTab(tab)}
+        />
+        {/* Dynamic Content Preview Card */}
         <div className="p-6 bg-slate-900 border border-slate-800 rounded-2xl shadow-xl text-slate-300">
           <h2 className="text-lg font-medium text-white mb-2">
             Active View: <span className="text-emerald-400">{activeTab}</span>
           </h2>
           <p className="text-sm text-slate-400">
-            Switching tabs smoothly animates the background pill using spring physics, replicating native iOS segmented navigation patterns.
+            Switching tabs smoothly animates the background pill using spring
+            physics, replicating native iOS segmented navigation patterns.
           </p>
         </div>
 
+        <SlideOverDrawer />
       </div>
     </main>
   );
