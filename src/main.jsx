@@ -10,6 +10,7 @@ import { motion } from "motion/react";
 import Dialog from "./Components/Dialog";
 import { SegmentedControl } from "./Components/SegmentedControl";
 import { SlideOverDrawer } from "./Components/SlideOverDrawer";
+import { EnterpriseCard } from "./Components/EnterpriseCard";
 function PlusIcon() {
   return (
     <svg
@@ -34,11 +35,11 @@ function App() {
   const [activeTab, setActiveTab] = useState("Overview");
   return (
     <main
-      className={`${dark ? "dark" : ""} min-h-screen bg-white text-gray-900 transition-colors dark:bg-slate-950 dark:text-slate-100`}
+      className={`${dark ? "dark" : ""} min-h-screen bg-bg-neutral-primary text-gray-900 transition-colors`}
     >
       <div className="mx-auto max-w-4xl px-6 py-10 sm:px-10">
         <header className="mb-8 flex items-center justify-between gap-4">
-          <h1 className="text-3xl font-bold tracking-tight">UI Library</h1>
+          <h1 className="text-text-brand text-3xl font-bold tracking-tight">TD Bank UI Library</h1>
           <ToggleSwitch
             label={dark ? "Dark Mode" : "Light Mode"}
             onChange={() => setDark(!dark)}
@@ -49,7 +50,7 @@ function App() {
           aria-labelledby="buttons-heading"
           className="rounded-xl border border-gray-300 p-6 dark:border-slate-700"
         >
-          <h2 className="mb-5 text-2xl font-bold" id="buttons-heading">
+          <h2 className="text-text-primary mb-5 text-2xl font-bold" id="buttons-heading">
             Buttons
           </h2>
           <div className="flex flex-wrap items-center gap-3">
@@ -99,6 +100,7 @@ function App() {
         </div>
 
         <SlideOverDrawer />
+        <EnterpriseCard />
       </div>
     </main>
   );

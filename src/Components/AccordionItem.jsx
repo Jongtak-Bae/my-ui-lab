@@ -18,16 +18,16 @@ export function AccordionItem({ title, content }) {
         aria-controls={contentId} // 👈 Crucial: Links the button to the content region
       >
         {/* Changed <h1> to <span> because headings cannot be nested inside buttons */}
-        <span className="text-2xl font-bold text-slate-900 dark:text-white">
+        <span className="text-2xl font-bold text-text-primary">
           {title}
         </span>
         
         {/* Animated Chevron Icon */}
-        <div className={cn("flex w-8 h-8 rounded-lg justify-center items-center", isOpen? "bg-bg-brand": "bg-bg-neutral-secondary")}>
+        <div className={cn("flex w-8 h-8 rounded-lg justify-center items-center", isOpen? "bg-bg-brand": "bg-bg-inverse")}>
           <ChevronDown 
             className={cn(
               "w-5 h-5 text-text-quaternary transition-transform duration-200 ease-in-out",
-              isOpen && "rotate-180 text-text-primary" // Rotates smoothly when open
+              isOpen && "rotate-180 text-text-on-brand" // Rotates smoothly when open
             )} 
           />
         </div>
@@ -38,7 +38,7 @@ export function AccordionItem({ title, content }) {
         id={contentId}
         role="region"
         className={cn(
-            "grid transition-all duration-200 ease-in-out text-slate-600 dark:text-slate-300",
+            "grid transition-all duration-200 ease-in-out text-text-secondary",
              isOpen 
              ? "grid-rows-[1fr] p-4"
              : "grid-rows-[0fr] p-0 px-4"

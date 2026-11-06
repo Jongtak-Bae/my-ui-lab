@@ -6,13 +6,28 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "latest",
+    "@storybook/addon-a11y": "^10.6.6",
+    "@storybook/addon-docs": "^10.6.6",
+    "@storybook/addon-mcp": "^10.6.6",
+    "@storybook/addon-themes": "^10.6.6",
+    "@storybook/addon-vitest": "^10.6.6",
+    "@storybook/react-vite": "^10.6.6",
     "@tailwindcss/vite": "^4.3.3",
     "@vitejs/plugin-react": "^6.1.2",
+    "@vitest/browser-playwright": "latest",
+    "@vitest/coverage-v8": "latest",
+    "playwright": "latest",
+    "prop-types": "latest",
+    "storybook": "^10.6.6",
     "tailwindcss": "^4.3.3",
-    "vite": "^8.3.4"
+    "vite": "^8.3.4",
+    "vitest": "latest"
   },
   "dependencies": {
     "clsx": "^2.1.1",
