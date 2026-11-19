@@ -72,23 +72,28 @@ body {
 --color-bg-info: var(--color-blue);
 --color-bg-neutral-primary: var(--color-eggshell);
 --color-bg-neutral-secondary: var(--color-snow);
---color-bg-disabled: var(--color-gray-200);
+--color-bg-disabled: var(--color-smoke);
 /* Text Colors */
 --color-text-brand: var(--color-cilantro);
 --color-text-on-brand: var(--color-midnight);
 --color-text-primary: var(--color-midnight);
 --color-text-secondary: var(--color-charcoal);
-
+--color-text-danger: var(--color-brick);
+--color-text-disabled: var(--color-stone);
 --color-text-quaternary: var(--color-snow);
 
 /* Border Colors */
 --color-border-brand: var(--color-emerald);
 --color-border-brand-accent: var(--color-midnight);
+--color-border-neutral: var(--color-storm);
+--color-border-danger: var(--color-brick);
+--color-border-disabled: var(--color-stone);
 
 /* Icon Colors */
 --color-icon-brand: var(--color-emerald);
 
 --color-toggle-base-bg: var(--color-storm);
+
 
 }
 
@@ -108,16 +113,22 @@ body {
 
 --color-bg-neutral-primary: var(--color-midnight);
 --color-bg-neutral-secondary: var(--color-obsidian);
---color-bg-disabled: var(--color-gray-200);
+--color-bg-disabled: var(--color-obsidian);
 /* Text Colors */
 --color-text-on-brand: var(--color-midnight);
 --color-text-primary: var(--color-white);
 --color-text-secondary: var(--color-stone);
 --color-text-brand: var(--color-emerald-dark);
 --color-text-quaternary: var(--color-obsidian);
+--color-text-danger: var(--color-brick-dark);
+--color-text-disabled: var(--color-charcoal);
 /* Border Colors */
 --color-border-brand: var(--color-emerald);
 --color-border-brand-accent: var(--color-white);
+--color-border-neutral: var(--color-iron);
+--color-border-danger: var(--color-brick-dark);
+--color-border-disabled: var(--color-charcoal);
+
 
 --color-toggle-base-bg: var(--color-stone);
 

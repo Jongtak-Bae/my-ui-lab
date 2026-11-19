@@ -7,32 +7,21 @@ import { Button } from "./Components/Button";
 import { ToggleSwitch } from "./Components/ToggleSwitch";
 import { AccordionItem } from "./Components/AccordionItem";
 import { motion } from "motion/react";
-import Dialog from "./Components/Dialog";
+import Dialog from "./stories/Dialog";
 import { SegmentedControl } from "./Components/SegmentedControl";
 import { SlideOverDrawer } from "./Components/SlideOverDrawer";
 import { EnterpriseCard } from "./Components/EnterpriseCard";
-function PlusIcon() {
-  return (
-    <svg
-      aria-hidden="true"
-      className="mr-1 inline-block size-4"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth="1.5"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M12 4.5v15m7.5-7.5h-15"
-      />
-    </svg>
-  );
-}
+import {Input} from "./Components/Input";
+import { User, Eye } from "lucide-react";
 
 function App() {
   const [dark, setDark] = useState(false);
   const [activeTab, setActiveTab] = useState("Overview");
+  const[isOpen, setIsOpen] = useState(false);
+
+  const handleConfirm = () => {
+    setIsOpen(false);
+  }
   return (
     <main
       className={`${dark ? "dark" : ""} min-h-screen bg-bg-neutral-primary text-gray-900 transition-colors`}
@@ -80,8 +69,20 @@ function App() {
            simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also
         "
         />
+        <Button 
+        handleClick={()=> setIsOpen(true)} 
+        label="Open Action Modal"/>
         <div className="bg-black grid place-items-center h-128">
-          <Dialog widthClass="w-80" />
+          <Dialog 
+          isOpen={isOpen}
+          onClose={()=>setIsOpen(false)}
+          widthClass="w-80" 
+          title="Confirm Account Action"
+          description="Lorem ipsum is placeholder text commonly used in the graphic, print,
+          and publishing industries for previewing layouts and visual mockups."
+          confirmLabel="Confirm Action"
+          onConfirm={handleConfirm}
+          />
         </div>
         <SegmentedControl
           options={["Overview", "Analytics", "Settings"]}
@@ -101,6 +102,16 @@ function App() {
 
         <SlideOverDrawer />
         <EnterpriseCard />
+        <div className="grid gap-3 max-w-3xs">
+            <Input label="Username" error leadingIcon={User}/>
+        <Input label="Username" placeholder="Hint Text goes here" />
+        <Input label="Username" type="number"/>
+        <Input label="Phone Number" type="tel"/>
+        <Input label="Username" disabled helperText="this is disabled"/>
+        <Input label="Password" type="password" helperText="this is disabled" />
+         <Input label="Username" readOnly value="John" helperText="this is disabled"/>
+        </div>
+        
       </div>
     </main>
   );
