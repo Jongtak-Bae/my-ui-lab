@@ -14,10 +14,49 @@ import { EnterpriseCard } from "./Components/EnterpriseCard";
 import {Input} from "./Components/Input";
 import { User, Eye } from "lucide-react";
 
+import { TransactionTable } from "./Components/TransactionTable";
+
 function App() {
   const [dark, setDark] = useState(false);
   const [activeTab, setActiveTab] = useState("Overview");
   const[isOpen, setIsOpen] = useState(false);
+
+  const tableData = [
+     {
+    id: "TXN-8492",
+    date: "Nov 18, 2026",
+    merchant: "Direct Deposit - Payroll",
+    category: "Income",
+    status: "Completed",
+    amount: 123.045,
+  },
+  {
+    id: "TXN-8491",
+    date: "Nov 17, 2026",
+    merchant: "Cloud Infrastructure Hosting",
+    category: "Software",
+    status: "Completed",
+    amount: -128.5,
+  },
+  {
+    id: "TXN-8490",
+    date: "Nov 17, 2026",
+    merchant: "Interac e-Transfer — Rent",
+    category: "Housing",
+    status: "Pending",
+    amount: -2100.0,
+  },
+  {
+    id: "TXN-8489",
+    date: "Nov 15, 2026",
+    merchant: "Fresh Market Groceries",
+    category: "Daily Spend",
+    status: "Completed",
+    amount: -94.25,
+  },
+  ];
+
+  
 
   const handleConfirm = () => {
     setIsOpen(false);
@@ -111,7 +150,11 @@ function App() {
         <Input label="Password" type="password" helperText="this is disabled" />
          <Input label="Username" readOnly value="John" helperText="this is disabled"/>
         </div>
-        
+        <section className="space-y-4">
+          <h2 className="text-lg font-semibold">3. Tokenized Transaction Ledger</h2>
+
+          <TransactionTable transactions={tableData}/>
+        </section>
       </div>
     </main>
   );
