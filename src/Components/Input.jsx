@@ -23,7 +23,7 @@ export function Input({
   const inputType = isPasswodType ? (showPassword? "text": "password") : type;
 
   return (
-    <div className="max-w-sm mx-auto">
+    <div className="w-full">
       <div
         className={cn(
           "relative flex h-14 w-full cursor-text items-center border rounded-md gap-3 bg-bg-neutral-secondary px-3 transition-colors focus-within:ring-1",

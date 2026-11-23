@@ -20,6 +20,7 @@ function App() {
   const [dark, setDark] = useState(false);
   const [activeTab, setActiveTab] = useState("Overview");
   const[isOpen, setIsOpen] = useState(false);
+  const [selectedTxn, setSelectedTxn] = useState(null);
 
   const tableData = [
      {
@@ -153,7 +154,51 @@ function App() {
         <section className="space-y-4">
           <h2 className="text-lg font-semibold">3. Tokenized Transaction Ledger</h2>
 
-          <TransactionTable transactions={tableData}/>
+          <TransactionTable transactions={tableData} onSelectRow={(txn) => setSelectedTxn(txn)}/>
+
+            <Dialog 
+            isOpen={Boolean(selectedTxn)}
+            onClose={()=> setSelectedTxn(null)}
+            title={selectedTxn ? selectedTxn.description : "Transaction Details"}
+            description={
+              selectedTxn
+              ? `Reference ${selectedTxn.id} · Recorded on ${selectedTxn.date}`
+              : ""
+            }
+            content={
+              selectedTxn && (
+                  <div className="space-y-3 text-sm">
+              <div className="flex justify-between border-b border-subtle pb-2">
+                <span className="text-slate-muted">Status</span>
+                <span className="font-medium text-main">{selectedTxn.status}</span>
+              </div>
+              <div className="flex justify-between border-b border-subtle pb-2">
+                <span className="text-slate-muted">Category</span>
+                <span className="font-medium text-main">
+                  {selectedTxn.category}
+                </span>
+              </div>
+              <div className="flex justify-between border-b border-subtle pb-2">
+                <span className="text-slate-muted">Amount</span>
+                <span className="font-semibold text-main tabular-nums">
+                  {selectedTxn.amount < 0
+                    ? `-$${Math.abs(selectedTxn.amount).toFixed(2)}`
+                    : `+$${selectedTxn.amount.toFixed(2)}`}
+                </span>
+              </div>
+              <div>
+                <span className="block text-xs text-slate-muted mb-1">Memo</span>
+                <p className="p-3 rounded-lg bg-canvas border border-subtle text-main">
+                  {selectedTxn.memo}
+                </p>
+              </div>
+            </div>
+              )
+            
+            }
+            confirmLabel="Done"
+            onConfirm={()=> setSelectedTxn(null)}
+            />
         </section>
       </div>
     </main>

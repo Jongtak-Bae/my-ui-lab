@@ -22,9 +22,9 @@ export function ToggleSwitch({ label, defaultState = false, onChange }) {
         onClick={handleToggle}
         className={cn(
           "relative bg-toggle-base-bg items-center inline-flex h-8 w-14 cursor-pointer rounded-full border-2 border-transparent focus-visible:outline-2 focus-visible:outline-offset-2",
-        //   isOn
-        //     ? "bg-bg-success  focus-visible:outline-border-brand"
-        //     : "bg-toggle-base-bg focus-visible:outline-border-brand-accent",
+          //   isOn
+          //     ? "bg-bg-success  focus-visible:outline-border-brand"
+          //     : "bg-toggle-base-bg focus-visible:outline-border-brand-accent",
         )}
       >
         <span className="sr-only">{label}</span>
@@ -37,11 +37,13 @@ export function ToggleSwitch({ label, defaultState = false, onChange }) {
           )}
           layout
         >
-            {isOn? <Moon size={"20px"} color= 'var(--color-text-secondary)'/> : <Sun size={"20px"} color= 'var(--color-text-secondary)'/>
-             }
-          
+          {isOn ? (
+            <Moon size={"20px"} color="var(--color-text-secondary)" />
+          ) : (
+            <Sun size={"20px"} color="var(--color-text-secondary)" />
+          )}
         </motion.div>
       </button>
-    </div>  
+    </div>
   );
 }

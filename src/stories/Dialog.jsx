@@ -11,8 +11,8 @@ export default function Dialog({
   description,
   confirmLabel = "Confirm",
   cancelLabel = "Cancel",
-  onConfirm
-
+  onConfirm,
+ content
   }) {
 
     useEffect(()=>{
@@ -35,7 +35,7 @@ export default function Dialog({
     if(!isOpen) return null;
   return (
     <div 
-    className={`relative ${widthClass}`}
+    className={`fixed inset-0 z-50 flex items-center justify-center bg-black/60 ${widthClass}`}
     role="dialog"
     aria-modal="true"
     aria-labelledby="modal-title"
@@ -56,8 +56,10 @@ export default function Dialog({
           {description}
         </p>
         )
+        
 
         }
+{content}
         
         <div className="flex gap-4 justify-end">
           <Button label={cancelLabel} variant="secondary" onClick={onClose} />
