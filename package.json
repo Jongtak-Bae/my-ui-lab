@@ -23,6 +23,8 @@
     "@vitest/browser-playwright": "latest",
     "@vitest/coverage-v8": "latest",
     "playwright": "latest",
+    "prettier": "^3.10.1",
+    "prettier-plugin-tailwindcss": "^0.8.1",
     "prop-types": "latest",
     "storybook": "^10.6.6",
     "tailwindcss": "^4.3.3",
@@ -40,5 +42,10 @@
   "overrides": {
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
+  },
+  "prettier": {
+    "plugins": ["prettier-plugin-tailwindcss"],
+    "tailwindStylesheet": "./src/style.css",
+    "tailwindFunctions": ["clsx", "cn", "cva"]
   }
 }

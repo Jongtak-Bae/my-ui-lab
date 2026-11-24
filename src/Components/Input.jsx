@@ -4,7 +4,7 @@ import {Eye, EyeOff} from "lucide-react";
 
 export function Input({
   label = "Label",
-  type = "password",
+  type,
   placeholder,
   value,
   helperText,
